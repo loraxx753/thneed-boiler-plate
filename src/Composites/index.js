@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Composite } from "../Primitives/index";
+import { Composite as BaseComposite } from "../Primitives/index";
 
 export default props => (
-  <Composite>
-    <p>here</p>
-  </Composite>
+  <BaseComposite>
+    <props.Component />
+  </BaseComposite>
 );
