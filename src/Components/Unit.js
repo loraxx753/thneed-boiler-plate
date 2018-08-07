@@ -1,6 +1,27 @@
 import React from "react";
+import { Debug } from "../Primitives/index";
 
 export const BaseUnit = ({ symbol, ...rest }) => <p>here</p>;
+
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      loading: false
+    });
+  }
+
+  render() {
+    if (this.state.loading) return "loading";
+    else return <h1>Welcome</h1>;
+  }
+}
 
 export const Docs = props => (
   <React.Fragment>
@@ -399,16 +420,3 @@ export const Docs = props => (
     </table>
   </React.Fragment>
 );
-
-export default class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loaded: false
-    };
-  }
-
-  render() {
-    return <p>{this.state.loaded.toString()}</p>;
-  }
-}

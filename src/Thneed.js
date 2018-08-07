@@ -1,26 +1,20 @@
 import React from "react";
-import { Router, Route, Navigate, Debug } from "../Primitives/index";
+import { Router, Route, Navigate, Debug } from "./Primitives/index";
 
-import { dashToPascal } from "../Primitives";
+import { dashToPascal } from "./Primitives";
 import Loadable from "react-loadable";
-import Home from "./Home";
+import Composites from "./Composites";
 
-export const Loading = props => <p>Loading...</p>;
-
-const Template = props => {
-  return (
-    <React.Fragment>
-      <Debug>{props}</Debug>
-    </React.Fragment>
-  );
-};
+export const Loading = props => <p>"Loading..."</p>;
 
 export default class extends React.Component {
-  state = {};
+  state = {
+    composites: Loading
+  };
 
   componentDidMount = () => {
     this.setState({
-      template: Template
+      composites: Composites
     });
   };
 
@@ -28,7 +22,7 @@ export default class extends React.Component {
     <Router>
       <React.Fragment>
         <React.Fragment>
-          <Route exact={true} path={"/"} component={Home} />
+          <Route exact={true} path={"/"} component={this.state.composites} />
           {/*<Route exact={true} path={"/"} component={Composites} />*/}
 
           {/*<Route

@@ -9,8 +9,6 @@ import {
 
 import { default as PrimitiveDebug } from "./Debug";
 
-console.log(PrimitiveDebug);
-
 const customPrimitives = {
   Text: styled("p")`
   ${color}
@@ -25,18 +23,16 @@ const customPrimitives = {
   Container: styled("div")``
 };
 
-// UTILITY FUNCTIONS
 export const realWord = camelCasedKey =>
   camelCasedKey[0].toUpperCase() +
   camelCasedKey.substring(1).replace(/([A-Z])+/g, " $1");
 
-// New Word: capitalize: v.
 export const capitalize = string =>
   string.charAt(0).toUpperCase() + string.slice(1);
 
-export const dashToPascal = string => capitalize(dashToCamel(string));
+export const dashToPascalCase = string => capitalize(dashToCamelCase(string));
 
-export const dashToCamel = string =>
+export const dashToCamelCase = string =>
   string.replace(/-([a-z])/g, c => c[1].toUpperCase());
 
 export const ObjectMap = props =>

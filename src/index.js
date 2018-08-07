@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Composites from "./Composites";
+import Thneed from "./Thneed";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Composites />, rootElement);
+ReactDOM.render(<Thneed />, rootElement);
